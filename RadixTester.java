@@ -4,6 +4,7 @@ public class RadixTester{
     System.out.println(Radix.nth(273,0));
     System.out.println(Radix.nth(273,1));
     System.out.println(Radix.nth(273,2));
+    System.out.println(Radix.length(123456789));
 
   }
 

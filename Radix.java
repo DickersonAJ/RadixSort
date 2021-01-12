@@ -8,4 +8,9 @@ public class Radix{
     return n;
   }
 
+  public static int length(int n){
+    String str = Integer.toString(n);
+    return str.length();
+  }
+
 }
