@@ -15,11 +15,11 @@ public class Radix{
     return str.length();
   }
 
-  public static void merge(MyLinkedList original, MyLinkedList[]buckets){
+  /*public static void merge(MyLinkedList original, MyLinkedList[]buckets){
     for (int i = 0; i < buckets.length; i++) {
       original.extend(buckets[i]);
     }
-  }
+  }*/
 
   public static void merge(SortableLinkedList original, SortableLinkedList[]buckets){
     for (int i = 0; i < buckets.length; i++) {
@@ -40,15 +40,13 @@ public class Radix{
     int longest = 0;
     int digit = 0;
     for (int i = 0; i < data.size(); i++) {
-      int num = data.get(i);
+      int num = data.remove(i);
       //establishes number of times the process will need to happen
       if (length(num) > longest) {
         longest = length(num);
       }
       //puts everything in buckets
-      int index = nth(num,digit);
-      buckets[index].add(num);
-      data.remove(i);
+      buckets[nth(num,digit)].add(num);
       i--;
     }
     //data = new SortableLinkedList();
@@ -65,11 +63,9 @@ public class Radix{
     //loop for other than 1st digit
     for (int j = 1; j < longest; j++) {
       for (int i = 0; i < data.size(); i++) {
-        int num = data.get(i);
+        int num = data.remove(i);
         //puts everything in buckets
-        int index = nth(num,digit);
-        buckets[index].add(num);
-        data.remove(i);
+        buckets[nth(num,digit)].add(num);
         i--;
       }
       //data = new SortableLinkedList();
@@ -90,12 +86,11 @@ public class Radix{
     SortableLinkedList negative = new SortableLinkedList();
     for (int i = 0; i < data.size(); i++) {
       if (data.get(i) < 0) {
-        negative.add(data.get(i));
+        negative.add(data.remove(i));
       }
       else{
-        positive.add(data.get(i));
+        positive.add(data.remove(i));
       }
-      data.remove(i);
       i--;
     }
     radixSortSimple(positive);
@@ -106,15 +101,13 @@ public class Radix{
     int longest = 0;
     int digit = 0;
     for (int i = 0; i < negative.size(); i++) {
-      int num = negative.get(i);
+      int num = negative.remove(i);
       //establishes number of times the process will need to happen
       if (length(num) > longest) {
         longest = length(num);
       }
       //puts everything in buckets
-      int index = nth(num,digit);
-      buckets[index].add(num);
-      negative.remove(i);
+      buckets[nth(num,digit)].add(num);
       i--;
     }
     //data = new SortableLinkedList();
@@ -131,11 +124,9 @@ public class Radix{
     //loop for other than 1st digit
     for (int j = 1; j < longest; j++) {
       for (int i = 0; i < negative.size(); i++) {
-        int num = negative.get(i);
+        int num = negative.remove(i);
         //puts everything in buckets
-        int index = nth(num,digit);
-        buckets[index].add(num);
-        negative.remove(i);
+        buckets[nth(num,digit)].add(num);
         i--;
       }
       //data = new SortableLinkedList();
