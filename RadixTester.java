@@ -68,6 +68,20 @@ public class RadixTester{
   System.out.println(sorted.toString());
   Radix.radixSortSimple(sorted);
   System.out.println(sorted.toString());
+  SortableLinkedList xsorted = new SortableLinkedList();
+  xsorted.add(38);
+  xsorted.add(96);
+  xsorted.add(-100);
+  xsorted.add(7);
+  xsorted.add(56);
+  xsorted.add(367);
+  xsorted.add(03);
+  xsorted.add(-58);
+  xsorted.add(2);
+  xsorted.add(-4);
+  System.out.println(xsorted.toString());
+  Radix.radixSort(xsorted);
+  System.out.println(xsorted.toString());
 
   }
 
