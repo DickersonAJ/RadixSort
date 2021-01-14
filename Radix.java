@@ -10,9 +10,10 @@ public class Radix{
   }
 
   public static int length(int n){
-    n = Math.abs(n);
+    /*n = Math.abs(n);
     String str = Integer.toString(n);
-    return str.length();
+    return str.length();*/
+    return (int)Math.log10(Math.abs(n))+1;
   }
 
   /*public static void merge(MyLinkedList original, MyLinkedList[]buckets){
